@@ -1,6 +1,5 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
-import "./App.css";
 import Products from "./pages/Products";
 import ProductListings from "./pages/ProductListings";
 function App() {
