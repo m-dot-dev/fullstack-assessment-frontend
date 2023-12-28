@@ -38,10 +38,7 @@ const Products: React.FC = () => {
   const userEmailRef = React.useRef<HTMLInputElement>(null);
 
   const handleStarred = () => {
-    console.log(userNameRef?.current?.value, userEmailRef?.current?.value);
-    console.log(starredProduct);
     const user_email = userEmailRef?.current?.value || "";
-    console.log(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(user_email));
     if (userEmailRef?.current?.value && userNameRef?.current?.value) {
       if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(user_email) === false) {
         return toast.error("Please enter a valid email address");
@@ -55,15 +52,13 @@ const Products: React.FC = () => {
       axios
         .post("http://localhost:3000/starred", starred)
         .then((res) => {
+          let response = res.data.data;
           toast.dismiss(); // clear all previous toasts
           toast.success("Starred Product Successfully");
           // save starred products to local storage to prevent multiple star
           let starredProducts =
-            JSON.parse(
-              JSON.stringify(localStorage.getItem("starredProducts"))
-            ) || [];
-          console.log(starredProducts);
-          starredProducts = [...starredProducts, starred];
+            JSON.parse(localStorage.getItem("starredProducts") || "[]") || [];
+          starredProducts = [...starredProducts, response];
           localStorage.setItem(
             "starredProducts",
             JSON.stringify(starredProducts)
