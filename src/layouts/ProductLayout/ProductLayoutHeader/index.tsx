@@ -5,7 +5,7 @@ const ProductLayoutHeader: React.FC = () => {
   const navigate = useNavigate();
   const currentPath = window.location.pathname;
   return (
-    <div className="h-16 bg-[#942D3B] flex justify-center ">
+    <div className="h-16 bg-[#942D3B] flex justify-center sticky top-0 z-50 ">
       <div className="h-full max-w-[1600px] flex justify-between w-full ml-10 ">
         <div className="text-[30px] font-[Lato] font-bold text-[white] mt-2.5">
           LOGO
