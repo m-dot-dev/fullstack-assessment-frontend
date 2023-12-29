@@ -99,7 +99,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
     };
     setStarredProduct(starredProducts);
     if (starred.product_rating !== 0 && starred.id) {
-      await axios.patch(`http://localhost:3000/starred/${starred.id}`, {
+      await axios.patch(`${import.meta.env.VITE_BACKEND_URL}/starred/${starred.id}`, {
         product_rating: index + 1,
       });
       const prevLocalStorage =

@@ -40,7 +40,9 @@ const ProductListings: React.FC = () => {
   });
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/starred?page=${pagination.currentPage}`)
+      .get(
+        `${import.meta.env.VITE_BACKEND_URL}/starred?page=${pagination.currentPage}`
+      )
       .then((res) => {
         if (res.data.data) {
           setStarredProducts(res.data.data);

@@ -1,12 +1,9 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import axios from "axios";
-import { Star, WalletIcon } from "lucide-react";
 import React, { useEffect } from "react";
-import StarredDialogue from "./StarredDialogue";
-import OurProducts from "./OurProducts";
 import toast from "react-hot-toast";
 import FocusArea from "./FocusArea";
+import OurProducts from "./OurProducts";
+import StarredDialogue from "./StarredDialogue";
 const Products: React.FC = () => {
   const [products, setProducts] = React.useState<Product[]>([]);
   const [starredProduct, setStarredProduct] = React.useState<Starred>({
@@ -15,7 +12,7 @@ const Products: React.FC = () => {
     rating: 0,
   });
   useEffect(() => {
-    axios.get("http://localhost:3000/product").then((res) => {
+    axios.get(`${import.meta.env.VITE_BACKEND_URL}/product`).then((res) => {
       if (res.data.data) setProducts(res.data.data);
     });
   }, []);
@@ -50,7 +47,7 @@ const Products: React.FC = () => {
         product_rating: starredProduct.rating,
       };
       axios
-        .post("http://localhost:3000/starred", starred)
+        .post(`${import.meta.env.VITE_BACKEND_URL}/starred`, starred)
         .then((res) => {
           let response = res.data.data;
           toast.dismiss(); // clear all previous toasts
