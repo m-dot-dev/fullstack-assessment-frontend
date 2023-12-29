@@ -2,9 +2,9 @@ import React from "react";
 
 const FocusArea: React.FC = () => {
   return (
-    <div className="relative h-[400px] bg-no-repeat overflow-hidden">
+    <div className="relative h-[400px] bg-no-repeat overflow-hidden min-h-40">
       <div className="absolute w-full z-10 flex flex-col text-center items-center h-full justify-center">
-        <h1 className="font-[Montserrat] md:text-[58px] text-[white] pt-0 -mt-10 uppercase mb-8">
+        <h1 className="font-[Montserrat] sm:text-[30px] lg:text-[58px] text-[white] pt-0 -mt-10 uppercase mb-8">
           LISTING
         </h1>
         <p className="font-[Lato] md:text-[15px] text-[white] max-w-[1000px]">
