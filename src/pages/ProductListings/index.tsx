@@ -97,7 +97,8 @@ export function CustomPagination({
   setPagination,
 }: PaginationProps) {
   const PaginationItems = () => {
-    if (totalPages <= 1) return <CustomPaginationItem isActive={true} />;
+    if (totalPages <= 1)
+      return <CustomPaginationItem isActive={true} className="bg-[#CB4C5B] text-white">1 </CustomPaginationItem>;
 
     const end = currentPage + 2 > totalPages ? totalPages : currentPage + 2;
     const start = end - 2 < 1 ? 1 : end - 2;

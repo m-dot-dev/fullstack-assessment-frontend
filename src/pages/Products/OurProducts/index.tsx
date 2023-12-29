@@ -95,19 +95,20 @@ const ProductCard: React.FC<ProductCardProps> = ({
   const handleStarClicked = async (index: number) => {
     const starredProducts = {
       ...product,
-      rating: index + 1,
+      rating: index,
     };
     setStarredProduct(starredProducts);
     if (starred.product_rating !== 0 && starred.id) {
-      await axios.patch(`${import.meta.env.VITE_BACKEND_URL}/starred/${starred.id}`, {
-        product_rating: index + 1,
-      });
+      await axios.patch(
+        `${import.meta.env.VITE_BACKEND_URL}/starred/${starred.id}`,
+        { product_rating: index }
+      );
       const prevLocalStorage =
         JSON.parse(localStorage.getItem("starredProducts") || "[]") || [];
       const parsedLocalStorage = prevLocalStorage.map(
         (item: StarredProduct) => {
           if (item.id === starred.id) {
-            return { ...item, product_rating: index + 1 };
+            return { ...item, product_rating: index };
           }
           return item;
         }
@@ -154,7 +155,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
                     ? index + 1 <= hoveredStar
                       ? "#F5A623"
                       : "#E3EBF3"
-                    : index + 1 < preFill
+                    : index + 1 <= preFill
                     ? "#F5A623"
                     : "#E3EBF3"
                 }
