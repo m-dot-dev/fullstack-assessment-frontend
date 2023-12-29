@@ -1,3 +1,5 @@
-Clone / Fork the Repo and run "npm run dev"
+Clone / Fork the Repo and run "npm i && npm run dev"
 
-Backend ENV Already Set 
+VITE_BACKEND_URL ENV Already Set 
+
+No other setup required
