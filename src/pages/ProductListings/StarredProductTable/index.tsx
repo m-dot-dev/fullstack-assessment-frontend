@@ -8,7 +8,6 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Star } from "lucide-react";
-import React from "react";
 
 interface Starred {
   user_name: string;
