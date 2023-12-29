@@ -82,7 +82,7 @@ const Products: React.FC = () => {
       <div>
         <FocusArea />
 
-        <div className="relative max-w-[1600px] h-full bg-cover bg-center bg-no-repeat flex flex-col mx-auto bg-opacity-5">
+        <div className="relative max-w-[1600px] h-full bg-cover bg-center bg-no-repeat flex flex-col mx-auto bg-opacity-5 mb-16">
           <img
             alt="Home Focus Image"
             src="/our_products_background.png"
